@@ -1,0 +1,20 @@
+מכתב התראה / Warning Letter
+
+To: [Airline Name]
+Re: Flight [Flight Number] on [Date]
+
+Dear Sir/Madam,
+
+I am writing regarding flight [Flight Number] from [Origin] to [Destination] on [Date].
+The flight was [delayed/cancelled/overbooked] by approximately [X] hours.
+
+Under the Israeli Aviation Services Law (Tibi Law) / EU Regulation 261, I am entitled to compensation.
+
+I hereby demand payment of [Amount] within 14 days of receipt of this letter.
+
+If payment is not received, I intend to pursue legal action without further notice.
+
+Sincerely,
+[Your Full Name]
+[Phone]
+[Email]
