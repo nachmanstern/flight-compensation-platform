@@ -2,6 +2,10 @@
 
 Legal-tech platform for Israeli Aviation Law (Tibi Law) and EU Regulation 261 — compensation calculators, court verdict explorer, and claim guides.
 
+**Live site:** https://nachmanstern.github.io/flight-compensation-platform/
+
+**Repo:** https://github.com/nachmanstern/flight-compensation-platform
+
 ## Structure
 
 ```

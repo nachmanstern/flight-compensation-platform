@@ -42,6 +42,7 @@ class VerdictBase(BaseModel):
     amount: int
     currency: str = "ILS"
     delay_reason: str | None = None
+    disruption_type: str = "delay"
     summary: str | None = None
     flight_number: str | None = None
 

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Heebo, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const heebo = Heebo({
+  variable: "--font-heebo",
+  subsets: ["hebrew", "latin"],
 });
 
 const geistMono = Geist_Mono({
@@ -18,17 +18,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Flight Compensation Guide | Tibi Law & EU261",
-    template: "%s | Flight Compensation Guide",
+    default: "מדריך פיצויי טיסות | חוק שירותי תעופה ו-EU261",
+    template: "%s | מדריך פיצויי טיסות",
   },
   description:
-    "Calculate flight compensation under Israeli Tibi Law and EU261, explore court verdicts, and download warning letter templates.",
+    "חישוב פיצויי טיסה לפי החוק הישראלי ו-EU261, חיפוש פסקי דין, ומדריכים מעשיים לתביעה.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

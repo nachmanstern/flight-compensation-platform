@@ -1,0 +1,60 @@
+THE COMPLETE STEP-BY-STEP GUIDE TO SUING UNDER EU261
+
+STEP 1: CONFIRM YOUR ELIGIBILITY
+Before taking legal action, you must ensure your flight meets EU261 criteria.
+- Route: The flight departed from an EU airport OR arrived at an EU airport on an EU-based airline.
+- Delay/Cancellation: You arrived at your final destination 3+ hours late, the flight was canceled within 14 days of departure, or you were denied boarding.
+- Fault: The disruption was the airline's fault (e.g., crew shortage, technical issue). It cannot be an "extraordinary circumstance" (e.g., weather, ATC strikes).
+
+STEP 2: GATHER YOUR EVIDENCE
+Courts require proof. Compile the following into a single folder:
+- Booking confirmation and e-ticket.
+- Boarding passes (crucial for proving you were actually at the airport).
+- Written communications from the airline (texts, emails, or paper notices).
+- Receipts for expenses incurred during the delay (food, hotel, transport).
+
+STEP 3: SEND A FORMAL CLAIM TO THE AIRLINE (MANDATORY PREREQUISITE)
+You cannot sue without first giving the airline a chance to pay voluntarily.
+- Find the airline's official EU261 compensation form on their website.
+- Submit your details and demand the specific amount you are owed (€250 for flights under 1,500km; €400 for 1,500km-3,500km; €600 for over 3,500km).
+- Keep a screenshot or record of the submitted form.
+- Wait. Legally, you must give the airline a reasonable time to respond (usually 6 to 8 weeks). 
+
+STEP 4: SEND A "LETTER BEFORE ACTION"
+If the airline rejects your claim (claiming extraordinary circumstances) or ignores you for 8 weeks, you must send a formal warning.
+- Draft a "Letter Before Action" or "Letter Before Claim".
+- State your flight details, the disruption, the law (Regulation EC No 261/2004), and the compensation owed.
+- Give them a strict, final deadline to pay (usually 14 to 21 days).
+- State clearly: "If payment is not received by [Date], I will initiate court proceedings without further notice."
+- Send this via registered or tracked mail to their legal address.
+
+STEP 5: DETERMINE YOUR JURISDICTION
+If the deadline passes, you can file a lawsuit. Under EU law (Brussels I Regulation), you have the right to sue the airline in one of three places:
+1. The country where the flight departed.
+2. The country where the flight arrived.
+3. The country where the airline has its registered headquarters.
+Choose the jurisdiction that is most convenient for you or has the cheapest/easiest small claims process.
+
+STEP 6: FILE THE LAWSUIT
+Depending on your jurisdiction, choose the appropriate court process:
+
+Option A: The European Small Claims Procedure (Cross-Border)
+- Use this if you live in an EU country, but the airline is based in a DIFFERENT EU country.
+- Download and fill out "Form A" (available on the European e-Justice Portal).
+- Attach your evidence (tickets, letter before action, airline responses).
+- Submit the form to your local competent court.
+- The court handles the rest via mail/paperwork. You rarely have to appear in person.
+
+Option B: National Small Claims Court (Domestic)
+- Use this if you are suing in the country you reside in, or if you are using the UK court system.
+- Go to the government portal (e.g., Money Claim Online in the UK).
+- Fill out the digital summons, write a brief summary of the claim, and pay the court filing fee (usually between €25 and €100, which you can claim back from the airline if you win).
+
+STEP 7: THE COURT PROCESS AND JUDGMENT
+- Once served, the airline has a set number of days (usually 14 to 30) to respond to the court.
+- Often, just receiving the official court summons is enough to make the airline's legal department settle the case and pay you immediately to avoid court costs.
+- If they defend it, a judge will review the evidence (usually on paper, but occasionally via a short hearing). 
+- If you win, the court will issue a legally binding judgment ordering the airline to pay your compensation plus your court filing fees.
+
+STEP 8: ENFORCEMENT (IF NECESSARY)
+- If the airline still refuses to pay after a judge orders them to, you can hire court bailiffs to enforce the judgment (e.g., seizing assets from the airline's local office or freezing their local bank accounts).

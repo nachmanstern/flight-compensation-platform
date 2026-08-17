@@ -20,6 +20,7 @@ class Verdict(Base):
     amount = Column(Integer, nullable=False)
     currency = Column(String(3), nullable=False, default="ILS")
     delay_reason = Column(String(255), nullable=True)
+    disruption_type = Column(String(50), nullable=False, default="delay")
     summary = Column(Text, nullable=True)
     flight_number = Column(String(20), nullable=True)
 

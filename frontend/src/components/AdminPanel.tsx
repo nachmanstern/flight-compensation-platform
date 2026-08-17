@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { Card } from "@/components/Card";
-import type { Airline, Law, Verdict } from "@/types";
+import { disruptionTypeLabels } from "@/lib/verdict-filters";
+import type { Airline, Law, Verdict, VerdictDisruptionType } from "@/types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
@@ -40,7 +41,7 @@ export function AdminPanel() {
   const [airlines, setAirlines] = useState<Airline[]>([]);
   const [laws, setLaws] = useState<Law[]>([]);
   const [message, setMessage] = useState("");
-  const [scrapeQuery, setScrapeQuery] = useState("El Al delay compensation");
+  const [scrapeQuery, setScrapeQuery] = useState("אל על פיצוי איחור טיסה");
   const [scrapeResults, setScrapeResults] = useState<
     Array<{ case_number: string; title: string; summary: string; source_url: string }>
   >([]);
@@ -54,6 +55,7 @@ export function AdminPanel() {
     amount: "",
     currency: "ILS",
     delay_reason: "",
+    disruption_type: "delay" as VerdictDisruptionType,
     summary: "",
     flight_number: "",
   });
@@ -105,9 +107,9 @@ export function AdminPanel() {
       });
       const updated = await adminFetch<Verdict[]>("/api/admin/verdicts", adminKey);
       setVerdicts(updated);
-      setMessage("Verdict created successfully.");
+      setMessage("פסק הדין נוסף בהצלחה.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Failed to create verdict");
+      setMessage(error instanceof Error ? error.message : "שגיאה ביצירת פסק דין");
     }
   }
 
@@ -115,9 +117,9 @@ export function AdminPanel() {
     try {
       await adminFetch(`/api/admin/verdicts/${id}`, adminKey, { method: "DELETE" });
       setVerdicts((current) => current.filter((verdict) => verdict.id !== id));
-      setMessage("Verdict deleted.");
+      setMessage("פסק הדין נמחק.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Failed to delete verdict");
+      setMessage(error instanceof Error ? error.message : "שגיאה במחיקה");
     }
   }
 
@@ -130,9 +132,9 @@ export function AdminPanel() {
         body: JSON.stringify({ query: scrapeQuery, limit: 8 }),
       });
       setScrapeResults(results);
-      setMessage(`Scrape returned ${results.length} results.`);
+      setMessage(`הסקרייפר החזיר ${results.length} תוצאות.`);
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Scrape failed");
+      setMessage(error instanceof Error ? error.message : "שגיאה בסקרייפ");
     }
   }
 
@@ -159,29 +161,25 @@ export function AdminPanel() {
         amount: parsed.amount ? String(parsed.amount) : current.amount,
         currency: parsed.currency ?? current.currency,
       }));
-      setMessage("PDF parsed into the form.");
+      setMessage("ה-PDF נפרס לטופס.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "PDF parse failed");
+      setMessage(error instanceof Error ? error.message : "שגיאה בפרסור PDF");
     }
   }
 
   if (!authenticated) {
     return (
-      <Card title="Admin login">
-        <p className="mb-4 text-sm text-slate-600">Enter your admin API key to manage verdicts.</p>
+      <Card title="כניסת מנהל">
+        <p className="mb-4 text-sm text-slate-600">הזינו מפתח API לניהול פסקי דין.</p>
         <input
           type="password"
           value={adminKey}
           onChange={(event) => setAdminKey(event.target.value)}
           className="mb-4 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm"
-          placeholder="Admin API key"
+          placeholder="מפתח API"
         />
-        <button
-          type="button"
-          onClick={login}
-          className="rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white"
-        >
-          Sign in
+        <button type="button" onClick={login} className="rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white">
+          כניסה
         </button>
       </Card>
     );
@@ -195,16 +193,16 @@ export function AdminPanel() {
         </div>
       ) : null}
 
-      <Card title="Add verdict manually">
+      <Card title="הוספת פסק דין ידנית">
         <form onSubmit={createVerdict} className="grid gap-4 md:grid-cols-2">
           {[
-            ["case_number", "Case number"],
+            ["case_number", "מספר תיק"],
             ["slug", "Slug (URL)"],
-            ["date", "Date"],
-            ["amount", "Amount"],
-            ["currency", "Currency"],
-            ["flight_number", "Flight number"],
-            ["delay_reason", "Delay reason"],
+            ["date", "תאריך"],
+            ["amount", "סכום"],
+            ["currency", "מטבע"],
+            ["flight_number", "מספר טיסה"],
+            ["delay_reason", "סיבת עיכוב"],
           ].map(([key, label]) => (
             <label key={key} className="block text-sm">
               <span className="mb-1 block font-medium text-slate-700">{label}</span>
@@ -221,7 +219,7 @@ export function AdminPanel() {
           ))}
 
           <label className="block text-sm">
-            <span className="mb-1 block font-medium text-slate-700">Airline</span>
+            <span className="mb-1 block font-medium text-slate-700">חברת תעופה</span>
             <select
               value={form.airline_id}
               onChange={(event) => setForm((current) => ({ ...current, airline_id: event.target.value }))}
@@ -236,7 +234,7 @@ export function AdminPanel() {
           </label>
 
           <label className="block text-sm">
-            <span className="mb-1 block font-medium text-slate-700">Law</span>
+            <span className="mb-1 block font-medium text-slate-700">חוק</span>
             <select
               value={form.law_id}
               onChange={(event) => setForm((current) => ({ ...current, law_id: event.target.value }))}
@@ -250,8 +248,28 @@ export function AdminPanel() {
             </select>
           </label>
 
+          <label className="block text-sm">
+            <span className="mb-1 block font-medium text-slate-700">סוג הפרעה</span>
+            <select
+              value={form.disruption_type}
+              onChange={(event) =>
+                setForm((current) => ({
+                  ...current,
+                  disruption_type: event.target.value as VerdictDisruptionType,
+                }))
+              }
+              className="w-full rounded-xl border border-slate-300 px-4 py-2"
+            >
+              {(Object.keys(disruptionTypeLabels) as VerdictDisruptionType[]).map((type) => (
+                <option key={type} value={type}>
+                  {disruptionTypeLabels[type]}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <label className="block text-sm md:col-span-2">
-            <span className="mb-1 block font-medium text-slate-700">Summary</span>
+            <span className="mb-1 block font-medium text-slate-700">תקציר</span>
             <textarea
               value={form.summary}
               onChange={(event) => setForm((current) => ({ ...current, summary: event.target.value }))}
@@ -260,11 +278,9 @@ export function AdminPanel() {
           </label>
 
           <div className="flex flex-wrap gap-3 md:col-span-2">
-            <button type="submit" className="rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white">
-              Save verdict
-            </button>
+            <button type="submit" className="rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white">שמירה</button>
             <label className="cursor-pointer rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700">
-              Parse PDF into form
+              פרסור PDF לטופס
               <input
                 type="file"
                 accept="application/pdf"
@@ -279,7 +295,7 @@ export function AdminPanel() {
         </form>
       </Card>
 
-      <Card title="Scraper preview">
+      <Card title="תצוגת סקרייפר">
         <div className="mb-4 flex gap-3">
           <input
             value={scrapeQuery}
@@ -291,7 +307,7 @@ export function AdminPanel() {
             onClick={runScrape}
             className="rounded-xl bg-slate-900 px-5 py-2 text-sm font-semibold text-white"
           >
-            Run scrape
+            הרצת סקרייפ
           </button>
         </div>
         <ul className="space-y-3 text-sm text-slate-600">
@@ -304,20 +320,22 @@ export function AdminPanel() {
         </ul>
       </Card>
 
-      <Card title={`Existing verdicts (${verdicts.length})`}>
+      <Card title={`פסקי דין קיימים (${verdicts.length})`}>
         <ul className="divide-y divide-slate-100">
           {verdicts.map((verdict) => (
             <li key={verdict.id} className="flex items-center justify-between py-3 text-sm">
               <div>
                 <p className="font-medium text-slate-900">{verdict.slug}</p>
-                <p className="text-slate-500">{verdict.case_number}</p>
+                <p className="text-slate-500">
+                  {verdict.case_number} · {disruptionTypeLabels[verdict.disruption_type]}
+                </p>
               </div>
               <button
                 type="button"
                 onClick={() => deleteVerdict(verdict.id)}
                 className="rounded-lg px-3 py-1 text-red-600 hover:bg-red-50"
               >
-                Delete
+                מחיקה
               </button>
             </li>
           ))}

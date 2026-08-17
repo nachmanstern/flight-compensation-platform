@@ -11,6 +11,13 @@ export interface Law {
   description: string | null;
 }
 
+export type VerdictDisruptionType =
+  | "delay"
+  | "cancellation"
+  | "denied_boarding"
+  | "overbooking"
+  | "other";
+
 export interface Verdict {
   id: string;
   airline_id: string;
@@ -21,6 +28,7 @@ export interface Verdict {
   amount: number;
   currency: string;
   delay_reason: string | null;
+  disruption_type: VerdictDisruptionType;
   summary: string | null;
   flight_number: string | null;
   airline?: Airline;
@@ -29,12 +37,28 @@ export interface Verdict {
 
 export type DistanceBand = "short" | "medium" | "long";
 export type Regulation = "eu261" | "tibi";
+export type DisruptionType = VerdictDisruptionType | "advanced";
+export type FlightType = "direct" | "connecting";
 
 export interface CalculatorInput {
   distanceKm: number;
   delayHours: number;
-  isEuDeparture: boolean;
-  isCancellation: boolean;
+  departsFromEu: boolean;
+  departsFromIsrael: boolean;
+  disruptionType: DisruptionType;
+  arrivesInEu: boolean;
+  isEuCarrier: boolean;
+  involvesIsrael: boolean;
+  isDomesticIsrael: boolean;
+  isIsraeliCarrier: boolean;
+  noticeDaysBefore: number | null;
+  flightType: FlightType;
+  singleReservation: boolean;
+  layoverHours: number | null;
+  sameAirlineAllSegments: boolean;
+  delayOnOneSegmentOnly: boolean;
+  missedConnectionDueToSecurityOrLateBoarding: boolean;
+  choseCashRefundNotAlternative: boolean;
 }
 
 export interface CompensationResult {
@@ -43,4 +67,7 @@ export interface CompensationResult {
   currency: string;
   eligible: boolean;
   explanation: string;
+  assistance: string[];
+  connectionNotes: string[];
+  venueNote?: string;
 }

@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 const navItems = [
-  { href: "/calculator", label: "Calculator" },
-  { href: "/verdicts", label: "Verdicts" },
-  { href: "/guide", label: "How to Sue" },
-  { href: "/admin", label: "Admin" },
+  { href: "/calculator", label: "מחשבון" },
+  { href: "/verdicts", label: "פסקי דין" },
+  { href: "/guide", label: "איך לתבוע" },
+  { href: "/guide/laws", label: "חוקים" },
+  { href: "/guide/winning", label: "איך לנצח" },
 ];
 
 export function Header() {
@@ -13,11 +14,11 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-sm font-bold text-white">
-            FC
+            פט
           </span>
           <div>
-            <p className="text-sm font-semibold text-slate-900">Flight Compensation</p>
-            <p className="text-xs text-slate-500">Tibi Law & EU261 Guide</p>
+            <p className="text-sm font-semibold text-slate-900">פיצויי טיסות</p>
+            <p className="text-xs text-slate-500">חוק שירותי תעופה ו-EU261</p>
           </div>
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
