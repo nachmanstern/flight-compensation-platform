@@ -34,7 +34,7 @@ const steps: GuideStep[] = [
       { point: "טיסה מישראל לאירופה — בוחרים איפה לתבוע", detail: "כששני החוקים עלולים לחול: תביעה בישראל (חוק ישראלי) או באירופה (EU261) — חוק אחד בלבד." },
       { point: "לא פיצוי כפול", detail: "אם גם החוק הישראלי וגם EU261 חלים — בוחרים חוק אחד; הבחירה קובעת גם איפה מגישים." },
       { point: "יש 4 שנים להגיש תביעה", detail: "מיום האיחור או ההפרעה — לפי החוק הישראלי." },
-      { point: "השתמשו במחשבון באתר", detail: "לקבלת הערכה ראשונית לסכום ולסוג ההטבה." },
+      { point: "ראו את מדריך החוקים", detail: "לסכומי הפיצוי הקבועים ולסוגי הסיוע המגיעים." },
     ],
   },
   {
@@ -209,10 +209,7 @@ export function IsraelSueGuideContent() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap justify-center gap-4 text-lg font-semibold">
-          <Link href="/calculator" className="rounded-xl bg-sky-600 px-6 py-3 text-white hover:bg-sky-700">
-            מחשבון פיצוי
-          </Link>
-          <Link href="/verdicts" className="rounded-xl border-2 border-sky-200 px-6 py-3 text-sky-700 hover:bg-sky-50">
+          <Link href="/verdicts" className="rounded-xl bg-sky-600 px-6 py-3 text-white hover:bg-sky-700">
             מאגר פסקי דין
           </Link>
           <Link href="/guide/laws" className="rounded-xl border-2 border-sky-200 px-6 py-3 text-sky-700 hover:bg-sky-50">

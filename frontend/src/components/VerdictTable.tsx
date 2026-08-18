@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { formatAirlineName, formatDelayReason } from "@/lib/hebrew-labels";
-import { formatCurrency } from "@/lib/calculator";
+import { formatCurrency } from "@/lib/format";
 import { disruptionTypeLabels, type VerdictSortField, type VerdictSortOrder } from "@/lib/verdict-filters";
 import type { Verdict } from "@/types";
 

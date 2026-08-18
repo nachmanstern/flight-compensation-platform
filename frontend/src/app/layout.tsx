@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | מדריך פיצויי טיסות",
   },
   description:
-    "חישוב פיצויי טיסה לפי החוק הישראלי ו-EU261, חיפוש פסקי דין, ומדריכים מעשיים לתביעה.",
+    "חיפוש פסקי דין ומדריכים מעשיים לתביעת פיצוי לפי החוק הישראלי ו-EU261.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

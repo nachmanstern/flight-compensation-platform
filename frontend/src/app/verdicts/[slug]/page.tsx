@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Card } from "@/components/Card";
 import { formatAirlineName, formatDelayReason, formatLawName } from "@/lib/hebrew-labels";
-import { formatCurrency } from "@/lib/calculator";
+import { formatCurrency } from "@/lib/format";
 import { getFallbackVerdict, getFallbackVerdicts, getVerdict } from "@/lib/api";
 import { disruptionTypeLabels } from "@/lib/verdict-filters";
 import type { Verdict } from "@/types";

@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const navItems = [
-  { href: "/calculator", label: "מחשבון" },
   { href: "/verdicts", label: "פסקי דין" },
   { href: "/guide", label: "איך לתבוע" },
   { href: "/guide/laws", label: "חוקים" },

@@ -51,9 +51,6 @@ export function WinCaseGuideContent() {
           <Link href="/guide/laws" className="text-sky-700 underline hover:text-sky-800">
             מדריך חוקים
           </Link>
-          <Link href="/calculator" className="text-sky-700 underline hover:text-sky-800">
-            מחשבון פיצוי
-          </Link>
         </div>
       </section>
     </div>

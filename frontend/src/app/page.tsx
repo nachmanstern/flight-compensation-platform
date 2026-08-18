@@ -4,12 +4,6 @@ import { Card } from "@/components/Card";
 
 const features = [
   {
-    title: "מחשבון פיצוי",
-    description: "הערכת הפיצוי לפי החוק הישראלי ו-EU261 לפי מרחק ואיחור.",
-    href: "/calculator",
-    cta: "למחשבון",
-  },
-  {
     title: "מאגר פסקי דין",
     description: "חיפוש פסקי דין ישראליים לפי חברת תעופה, סכום, תאריך וסיבת עיכוב.",
     href: "/verdicts",
@@ -39,28 +33,28 @@ export default function HomePage() {
             הזכויות שלכם כשטיסה מתעכבת, מתבטלת או נדחפת
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-sky-100">
-            פלטפורמה המתמקדת בחוק שירותי תעופה הישראלי ובתקנה 261 של האיחוד האירופי — מחשבון,
-            פסקי דין, ומדריכים מעשיים לתביעת פיצוי.
+            פלטפורמה המתמקדת בחוק שירותי תעופה הישראלי ובתקנה 261 של האיחוד האירופי — פסקי דין
+            ומדריכים מעשיים לתביעת פיצוי.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/calculator"
+              href="/verdicts"
               className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-sky-900 transition hover:bg-sky-50"
             >
-              חישוב פיצוי
+              צפייה בפסקי דין
             </Link>
             <Link
-              href="/verdicts"
+              href="/guide"
               className="rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
-              צפייה בפסקי דין
+              איך לתבוע
             </Link>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {features.map((feature) => (
             <Card key={feature.href} title={feature.title}>
               <p className="mb-6 text-sm leading-7 text-slate-600">{feature.description}</p>
@@ -85,8 +79,8 @@ export default function HomePage() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h3 className="font-semibold text-slate-900">מה כולל האתר</h3>
               <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                <li>מחשבון פיצוי לפי החוק הישראלי ו-EU261</li>
                 <li>מאגר פסקי דין עם סינון</li>
+                <li>מדריכי תביעה בישראל ובאירופה</li>
                 <li>מדריך «איך לנצח» — כולל תירוץ המלחמה ומועדי בית משפט</li>
               </ul>
             </div>
